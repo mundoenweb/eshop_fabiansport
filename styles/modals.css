@@ -1,0 +1,96 @@
+.boxBaseModal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+.boxBaseModal-alert {
+    background-color: rgba(255, 255, 255, 0);
+}
+.boxWindowModal {
+    border-radius: 7px;
+    margin: 70px auto auto auto;
+    background-color: white;
+    border: 1px solid var(--color-first-1);
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    position:relative;
+    max-width: 90%;
+}
+.boxShadow:hover{
+    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+}
+.box-animate-top{
+    position:relative;
+    animation:animatetop 0.45s;
+}
+
+@keyframes
+animatetop{
+    from{
+        top:-300px;opacity:0
+    } 
+    to{
+        top:0;opacity:1
+    }
+}
+
+.titleWindow {
+    background-color: var(--color-first-1);
+    color:  var(--color-neutral);
+    display: flex;
+    position: relative;
+    align-items: center;
+    font-size: 16px;
+}
+.titleWindow p {
+  margin: 0px;
+  margin-left: 12px;
+}
+
+/*modal de formularios pequeños */
+.ModalBasic {
+  width: 90%;
+  padding-bottom: 20px;
+}
+@media screen and (min-width: 640px) {
+	.ModalBasic {
+    width: 360px;
+  }
+}
+@media screen and (min-width: 1024px) { 
+	.ModalBasic {
+    width: 480px;
+  }
+}
+
+
+
+/* btn cerrar modal */
+.closeModal {
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  border-radius: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 5px;
+}
+.closeModal:hover {
+  background-color: var(--color-neutral);
+  color: white;
+}
+.closeModal:active {
+  background-color: var(--color-neutral-3);
+  color: white;
+}

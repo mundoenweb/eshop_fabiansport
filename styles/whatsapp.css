@@ -1,0 +1,17 @@
+.content_whatsapp {
+  position: fixed;
+  bottom: 21px;
+  right: 21px;
+  z-index: 10000;
+}
+.whatsapp_img {
+  width: 40px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1024px) {
+  .content_whatsapp {
+    bottom: 25px;
+    right: 25px;
+  }
+}

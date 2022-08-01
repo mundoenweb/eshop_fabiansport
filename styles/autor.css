@@ -1,0 +1,37 @@
+.mw-presetation {
+  background-color: #202020;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  z-index: var(--zindex-modal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mw-presetation-autor {
+  position: absolute;
+  bottom: 24px;
+  color: var(--color-neutral-5);
+  text-align: center;
+  font-size: 13px;
+}
+.mw-presetation-autor a {
+  color: #ffbf00;
+}
+.img-logo-banner-home {
+  width: 75%;
+  object-fit: contain;
+  transition: .4s;
+}
+@media screen and (min-width: 640px) {
+  .img-logo-banner-home {  
+    height: 220px;
+    width: auto;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .img-logo-banner-home {  
+    height: 320px;
+  }
+}

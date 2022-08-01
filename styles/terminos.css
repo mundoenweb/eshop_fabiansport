@@ -1,0 +1,22 @@
+.h1-policy {
+  font-size: 28px;
+}
+.title-h2 {
+  font-weight: 700;
+  font-size: 22px;
+}
+.title-h3 {
+  margin: 0px;
+  font-weight: 700;
+  font-size: 17px;
+}
+.first-p { 
+  margin-top: 0px;
+}
+.ol-policy {
+  list-style: disc;
+  margin-left: 30px;
+}
+.ol-policy li {
+  padding-top: 4px;
+}

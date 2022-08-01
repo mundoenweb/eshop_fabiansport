@@ -1,0 +1,25 @@
+.alert {
+  padding: 10px;
+  border-radius: 5px;
+}
+@media screen and (min-width: 1024px) {
+	.alert {
+    padding: 16px;
+  }
+}
+.alert-yellow {
+  color: #856404;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+}
+.alert-red {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+.alert-blue {
+  color: #004085;
+  background-color: #cce5ff;
+  border: 1px solid #b8daff;
+}
+

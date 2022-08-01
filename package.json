@@ -1,0 +1,26 @@
+{
+  "name": "site_nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@redux-devtools/extension": "^3.2.2",
+    "axios": "^0.27.2",
+    "next": "12.2.3",
+    "next-seo": "^5.5.0",
+    "nprogress": "^0.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "8.21.0",
+    "eslint-config-next": "12.2.3"
+  }
+}

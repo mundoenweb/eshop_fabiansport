@@ -1,0 +1,26 @@
+@import url("mw-reset.css");
+@import url("autor.css");
+@import url("alerts.css");
+@import url("form.css");
+@import url("footer.css");
+@import url("carrito.css");
+@import url("board.css");
+@import url("modals.css");
+@import url("header.css");
+@import url("grid-products.css");
+@import url("product-view-sale.css");
+@import url("finish-compra.css");
+@import url("terminos.css");
+@import url("pages.css");
+@import url("login.css");
+@import url("whatsapp.css");
+
+.toShow {
+  display: block;
+}
+.none {
+  display: none;
+}
+.center {
+  text-align: center;
+}

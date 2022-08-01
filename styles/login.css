@@ -1,0 +1,49 @@
+.form-login {
+  margin: auto;
+  row-gap: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--color-neutral-4);
+  padding: 16px;
+  border-radius: 5px;
+}
+@media screen and (min-width: 640px) {
+	.form-login {
+    width: 360px;
+  }
+}
+.form-login span {
+  font-size: 13px;
+}
+.box-easy-sesion {
+  display: grid;
+  grid-template-columns: 100px 100px 1fr;
+  gap: 24px;
+}
+.btn-google {
+  width: 100px;
+  height: 30px;
+  background-color: var(--color-neutral-6);
+  border: 1px solid var(--color-neutral-4);
+  transition: .4s;
+}
+.btn-google:hover {
+  background-color: var(--color-neutral-4);
+  border: 1px solid var(--color-neutral-3);
+}
+.btn-google img {
+  height: 70%;
+}
+.face img {
+  width: 75px;
+  height: auto;
+}
+.form-login label {
+  position: relative;
+}
+.ojo-pass {
+  height: 16px;
+  right: 8px;
+  top: 27px;
+  position: absolute;
+  cursor: pointer;
+}

@@ -1,0 +1,32 @@
+.box-finish-sales {
+  padding: 40px 0px;
+  max-width: 360px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+	.box-finish-sales {
+    padding: 150px 0px;
+  }
+}
+@media screen and (min-width: 1024px) {
+	.box-finish-sales {
+    padding: 100px 0px;
+  }
+}
+.box-finish-sales img {
+  width: 90px;
+  height: auto;
+}
+.btn-finish-sales {
+  margin-bottom: 8px;
+  width: 200px;
+}
+.box-finish-sales .title-msg-pay {
+  margin: 16px 0px;
+}
+.box-finish-sales .msg-pay {
+  margin-top: 0px;
+}

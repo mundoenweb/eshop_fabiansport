@@ -1,0 +1,15 @@
+# Group 1
+User-agent: *
+User-agent: AdsBot-Google-Mobile
+User-agent: AdsBot-Google
+User-agent: AdsBot-Google-Mobile-Apps
+Disallow: /app/
+Disallow: /api/
+Disallow: /compra/
+Disallow: /ingresar-clave
+Disallow: /recuperar-clave
+Allow: /compra/carrito
+
+# Bloque el acceso a las imagenes para que no aparezcan en google images
+# User-agent: Googlebot-Image
+# Disallow: /
