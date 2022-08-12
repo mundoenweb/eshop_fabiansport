@@ -3,7 +3,7 @@ import MainMenu from '../component/MainMenu'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
 import store from '../redux/store'
-import PieDePagina from '../component/organisms/PieDePagina'
+import Footer from '../components/templetes/footer/Footer'
 import Router, { useRouter } from 'next/router'
 import NProgress from 'nprogress'
 import { useEffect } from 'react'
@@ -86,7 +86,7 @@ function MyApp({ Component, pageProps }) {
       <div className="section-height">
         <Component {...pageProps} />
       </div>
-      <PieDePagina />
+      <Footer />
       <Whatsapp />
 
     </Provider>
