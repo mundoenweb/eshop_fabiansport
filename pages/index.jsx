@@ -9,12 +9,10 @@ function Home({ image }) {
   const [vieVPresetation, setViewPresetation] = useState(true)
 
   useEffect(() => {
-    addEventListener('load', () => {
-      setTimeout(() => {
-        setViewPresetation(false)
-      }, 500)
-    })
-  })
+    setTimeout(() => {
+      setViewPresetation(false)
+    }, 1000)
+  }, [])
 
   return (
     <>
