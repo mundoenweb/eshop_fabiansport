@@ -10,8 +10,8 @@ import { useEffect } from 'react'
 import { loadState } from '../redux/storeSaveAndLoad'
 import { isPhone, reloadStateFromLocalStorage } from '../redux/actionCreators'
 import { NextSeo } from 'next-seo'
-import { useRequestTasa } from 'component/hook/useRequestTasa'
 import Whatsapp from 'component/atoms/Whatsapp'
+import Script from 'next/script'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => {
@@ -30,8 +30,6 @@ function MyApp({ Component, pageProps }) {
       if (innerWidth < 1024) store.dispatch(isPhone(true))
     })
     
-    useRequestTasa()
-
     addEventListener("resize", () => {
       if (innerWidth < 1024) store.dispatch(isPhone(true))
       else store.dispatch(isPhone(null))
@@ -79,10 +77,10 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="#202020" />
 
         <link rel="icon" type="image.png" sizes="192x192" href="/images/favicon.png" />
-        <link rel="stylesheet" type="text/css" href="/nprogress.css" />
-        <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <link re type="text/css" href="/nprogress.css" />
       </Head>
       
+      <Script src="https://sdk.mercadopago.com/js/v2" />
       
       <MainMenu />
       <div className="section-height">
