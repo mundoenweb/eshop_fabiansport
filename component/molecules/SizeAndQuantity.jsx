@@ -97,7 +97,6 @@ const SizeAndQuantity = ({ articulo, sizesState, indexSeze, valueSize }) => {
         {sizeCurrentForm.map((size, i) => <option key={i} value={size}>{size}</option>)}
       </InputSelect>
 
-      {console.log(valueSize.quantity)}
 
       <InputNumber
         onblur={onblur}
