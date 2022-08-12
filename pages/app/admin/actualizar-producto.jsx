@@ -3,8 +3,9 @@ import InputText from "../../../component/atoms/InputText"
 import InputTextTarea from "../../../component/atoms/InputTextTarea"
 import UploadImage from "../../../component/molecules/UploadImage"
 import { connect } from "react-redux"
-import { codeDadUpdate, costUpdate, descountUpdate, descriptionUpdate,
-  featuresUpdate, nameUpdate, codeUpdate, useUpdateProduct
+import {
+  codeDadUpdate, costUpdate, descountUpdate, descriptionUpdate,
+  featuresUpdate, nameUpdate, codeUpdate, updateProducts
 } from "../../../component/hook/useNewProduct"
 import { useRouter } from "next/router"
 import BarOptions from "component/molecules/BarOptions"
@@ -19,7 +20,13 @@ import store from "redux/store"
 import { updateProduct } from "redux/actionCreators"
 
 
-const NewProduct = ({ articulo, articuloSR, isLogged, typeUser }) => {
+const NewProduct = ({
+  articulo,
+  articuloSR,
+  isLogged,
+  typeUser,
+  rdxUpdateProduct 
+}) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -27,16 +34,22 @@ const NewProduct = ({ articulo, articuloSR, isLogged, typeUser }) => {
       alert("el producto que desea actualizar no existe")
       router.push('productos')
     }
-    store.dispatch(updateProduct(articuloSR))
-  }, [])
+  }, [articuloSR, router])
+
+  useEffect(() => {
+    if (isLogged) {
+      rdxUpdateProduct(articuloSR)
+    }
+  }, [articuloSR, isLogged, rdxUpdateProduct])
 
   // if (!isLogged || typeUser != 1) return <Private />
+
 
   return (
     <>
       <div className="mw-grid">
         <BarOptions />
-        <form onSubmit={e => useUpdateProduct(e, articulo, router)}>
+        <form onSubmit={e => updateProducts(e, articulo, router)}>
           <div className="form-profile">
             <p className="t2 title-form">Registro producto principal</p>
 
@@ -110,12 +123,6 @@ const NewProduct = ({ articulo, articuloSR, isLogged, typeUser }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  isLogged: state.userReducer.logged,
-  typeUser: state.userReducer.dataUser.role,
-  articulo: state.newProduct
-})
-
 export async function getServerSideProps({ query }) {
   let articulo = null
   if (query.id) {
@@ -128,4 +135,15 @@ export async function getServerSideProps({ query }) {
   }
 }
 
-export default connect(mapStateToProps)(NewProduct)
+const mapStateToProps = state => ({
+  isLogged: state.userReducer.logged,
+  typeUser: state.userReducer.dataUser.role,
+  articulo: state.newProduct
+})
+const mapDispathToProps = dispatch => ({
+  rdxUpdateProduct(product) {
+    dispatch(updateProduct(product))
+  }
+})
+
+export default connect(mapStateToProps, mapDispathToProps)(NewProduct)
