@@ -56,9 +56,6 @@ export async function getServerSideProps({ query }) {
   const { paramsForm, params, SEO } = await filterProductsUserSSR(query)
   let productos
 
-  console.log(params)
-
-
 
   if (typeof (params) === "string") productos = await ajax(`${api}/productos?${params}`)
   else productos = await ajax(`${api}/productosFiltro`, "POST", params)

@@ -87,7 +87,7 @@ const NavDefault = ({ typeUser, logged, name, avatar }) => {
                       <Link href="/login">
                         <a>
                           <img className="image-user-nav"
-                            src={`${process.env.STATIC_PUBLIC}images/nav/user_login.svg`}
+                            src={`/images/nav/user_login.svg`}
                             alt="user"
                           />
                         </a>
@@ -100,14 +100,14 @@ const NavDefault = ({ typeUser, logged, name, avatar }) => {
                     isPhone === true
                       ?
                       <img className="image-user-nav"
-                        src={avatar || `${process.env.STATIC_PUBLIC}images/nav/user_default.svg`}
+                        src={avatar || `/images/nav/user_default.svg`}
                         alt="login"
                         onClick={() => toggleMenu(menu)}
                       />
                       :
                       <div className="mw-flex" onClick={() => toggleMenu(menuLogin)}>
                         <img className="image-user-nav"
-                          src={avatar || `${process.env.STATIC_PUBLIC}images/nav/user_default.svg`}
+                          src={avatar || `/images/nav/user_default.svg`}
                           alt="user"
                         />
                         {
@@ -133,7 +133,7 @@ const NavDefault = ({ typeUser, logged, name, avatar }) => {
                 ?
                 <img onClick={() => toggleMenu(menu)}
                   className="image-nav-menu"
-                  src={`${process.env.STATIC_PUBLIC}images/nav/menu.svg`}
+                  src={`/images/nav/menu.svg`}
                   alt="carrito"
                   onLoad={e => loadImage(e)}
                 />

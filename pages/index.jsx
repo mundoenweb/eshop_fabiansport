@@ -4,7 +4,7 @@ import BannerMain from '../components/pages/Home/BannerMain'
 import GridCatHome from '../component/molecules/GridCatHome'
 import MarcasIndex from '../component/molecules/MarcasIndex'
 
-function Home({ image }) {
+function Home({}) {
 
   const [vieVPresetation, setViewPresetation] = useState(true)
 
@@ -19,7 +19,7 @@ function Home({ image }) {
       {
         // vieVPresetation && <Presentation />
       }
-      <BannerMain image={image} />
+      <BannerMain />
       <GridCatHome />
       <div className="box-banner-letras center">
         <h2 className="title-banner-letras">Más de 900 Productos <br /> Al Mejor Precio</h2>
@@ -28,14 +28,6 @@ function Home({ image }) {
       <div className="mw-grid separador"></div>
     </>
   )
-}
-
-export async function getServerSideProps() {
-  return {
-    props: {
-      image: Math.floor(Math.random() * (-1 + 9)) + 1
-    }
-  }
 }
 
 export default Home

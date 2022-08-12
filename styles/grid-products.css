@@ -133,13 +133,24 @@
 }
 .cart-img {
 	height: 160px;
+  position: relative;
   display: block;
   overflow: hidden;
-  background-color: white;
+  background: #FFF;
   border-bottom: 1px solid var(--color-neutral-5);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.animete {
+  background: hsl(0, 0%, 80%) ;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%   {background-color: hsl(0, 0%, 80%);}
+  50%  {background-color: hsl(0, 0%, 90%);}
+  100% {background-color: hsl(0, 0%, 80%);}
 }
 @media screen and (min-width: 640px) {
   .cart-img {
@@ -167,19 +178,16 @@
 .familyProduct {
   display: flex;
   height: 40px;
+  gap: 5px;
   background-color: white;
   border-bottom: 1px solid var(--color-neutral-5);
 }
-.familyProduct img {
-  width: 38px;
+.familyProduct a {
+  width: 40px;
   height: 40px;
-  padding: 0 2px;
-  object-fit: contain;
-  border-right: 1px solid var(--color-neutral-5);
 }
 .familyProduct img:hover {
   border: 1px solid var(--color-first);
-
 }
 .card-description {
 	padding: 15px 9px;

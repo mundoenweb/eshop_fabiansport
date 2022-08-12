@@ -1,6 +1,12 @@
+import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const FamilyProduct = ({ familyProduct, idDad, codeDad }) => {
+  const [animate, setAnimate] = useState('animete')
+  const delteAnimateLoad = () => {
+    setAnimate('')
+  } 
   return (
     <div className="familyProduct">
       {
@@ -8,8 +14,15 @@ const FamilyProduct = ({ familyProduct, idDad, codeDad }) => {
           if (i <= 3) {
             return (
               <Link key={i} href={`/articulo/${idDad}/${product.codigo}`}>
-                <a>
-                  <img loading="lazy" src={product.image[0]} alt={product.name} />
+                <a className={animate}>
+                  <Image
+                    width={40}
+                    height={40}
+                    onLoadingComplete={delteAnimateLoad}
+                    objectFit='contain'
+                    src={product.image[0]}
+                    alt={product.name}
+                  />
                 </a>
               </Link>
             )

@@ -6,7 +6,7 @@ import Image from "next/image"
 import { connect } from "react-redux"
 
 
-const BannerMain = ({ image, isPhone }) => {
+const BannerMain = ({ isPhone }) => {
   const boxBanner = createRef()
   const boxBannerContent = createRef()
 
@@ -14,6 +14,7 @@ const BannerMain = ({ image, isPhone }) => {
   const [img, setImg] = useState(imgInit)
 
   useEffect(() => {
+    const image = Math.floor(Math.random() * (-1 + 9)) + 1
     if (innerWidth < 640) {
       const img = `/images/banners/bg_${image}m.jpg`
       setImg(img)
@@ -22,7 +23,7 @@ const BannerMain = ({ image, isPhone }) => {
       const img = `/images/banners/bg_${image}.jpg`
       setImg(img)
     }
-  }, [isPhone, image])
+  }, [])
 
   useEffect(() => {
     var navInfo = window.navigator.appVersion.toLowerCase();

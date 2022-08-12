@@ -1,11 +1,26 @@
 import Like from './atoms/Like'
-import { loadImage } from './hook/useScripts'
 import { connect } from "react-redux"
 import Link from 'next/link'
+import Image from 'next/image'
+
 import FamilyProduct from './molecules/familyProduct'
+import { useState } from 'react'
 
-const CardProduct = ({ id, code, name, costo, idDad, descuento, image, typeUser, familyProduct }) => {
 
+const CardProduct = ({
+  id, code, name, costo,
+  idDad, descuento, image, typeUser,
+  familyProduct, idx }) => {
+
+  const [animate, setAnimate] = useState('animete')
+
+  // useEffect(() => {
+  //   setAnimate('animete')
+  // }, [image])
+
+  const delteAnimateLoad = () => {
+    setAnimate('')
+  }
   return (
     <div className="box-card">
       {
@@ -17,14 +32,31 @@ const CardProduct = ({ id, code, name, costo, idDad, descuento, image, typeUser,
       <div className="card-product">
         <Link href={`/articulo/${id}/${code}`}>
           <a>
-            <div className="cart-img">
-              <img src={image} alt={name} className="cart-img-img"
-              // <img onLoad={e => loadImage(e)} src={image} alt={name} className="cart-img-img"
-              />
+            <div className={`cart-img ${animate}`}>
+              {
+                idx < 4
+                  ? <>
+                    {/* {console.log(idx)} */}
+                    <Image
+                      src={image}
+                      alt={name}
+                      layout='fill'
+                      priority
+                      onLoadingComplete={delteAnimateLoad}
+                      className="cart-img-img"
+                    />
+                  </>
+                  : <Image
+                    src={image}
+                    alt={name}
+                    layout='fill'
+                    onLoadingComplete={delteAnimateLoad}
+                    className="cart-img-img"
+                  />
+              }
             </div>
           </a>
         </Link>
-
 
         <FamilyProduct familyProduct={familyProduct} idDad={id} codeDad={code} />
 

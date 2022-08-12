@@ -1,7 +1,7 @@
 import CardProduct from './CardProduct'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useDestacados } from './hook/useQuery'
+import { destacados } from './hook/useQuery'
 import Link from 'next/link'
 
 
@@ -11,7 +11,7 @@ const GridProductos = ({ productos }) => {
   const [productosDestacados, setProductosDestacados] = useState([])
 
   useEffect(() => {
-    if (!productos.length) useDestacados(setProductosDestacados)
+    if (!productos.length) destacados(setProductosDestacados)
   }, [productos.length])
   return (
     <>
@@ -37,21 +37,20 @@ const GridProductos = ({ productos }) => {
                 <div className="grid-products">
                   {
                     productosDestacados.map(familyProduct => (
-                      familyProduct.map((p, i) => {
-                        if (p.es_padre) return (
-                          <CardProduct
-                            code={p.codigo}
-                            key={i}
-                            id={p.id}
-                            idDad={p.id}
-                            name={p.name}
-                            costo={p.costo}
-                            descuento={p.descuento}
-                            image={p.image[0]}
-                            familyProduct={familyProduct}
-                          />
-                        )
-                      })
+                      familyProduct.map((p, i) => (
+                        <CardProduct
+                          code={p.codigo}
+                          key={p.id}
+                          idx={i}
+                          id={p.id}
+                          idDad={p.id}
+                          name={p.name}
+                          costo={p.costo}
+                          descuento={p.descuento}
+                          image={p.image[0]}
+                          familyProduct={familyProduct}
+                        />
+                      ))
                     ))
                   }
                 </div>
@@ -60,12 +59,13 @@ const GridProductos = ({ productos }) => {
           :
           <div className="grid-products">
             {
-              productos.map(familyProduct => (
-                familyProduct.map((p, i) => {
+              productos.map((familyProduct, i) => (
+                familyProduct.map((p) => {
                   if (p.es_padre) return (
                     <CardProduct
                       code={p.codigo}
-                      key={i}
+                      key={p.id}
+                      idx={i}
                       id={p.id}
                       idDad={p.id}
                       name={p.name}

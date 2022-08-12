@@ -144,7 +144,7 @@ export const useRemoveFilterPubli = (setSlugFilter, refFormFilter) => {
 
 
 // realiza una conulta de los productos más destacados
-export const useDestacados = async (setProductosDestacados) => {
+export const destacados = async (setProductosDestacados) => {
   const slugFilter = { descuento: 0, pageActual: 1, stock: 0, relevancia: 1, params: [] }
   let data = new FormData()
   data.append('json', JSON.stringify(slugFilter))
