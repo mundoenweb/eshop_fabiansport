@@ -70,7 +70,7 @@ export const useNewProduct = async (evt, articulo, router) => {
   store.dispatch(resetObjectNewProduct(stateProductNew))
 }
 
-export const useUpdateProduct = async (evt, articulo, router) => {
+export const updateProducts = async (evt, articulo, router) => {
   evt.preventDefault()
   const formulary = evt.target
   const form = new FormData()
