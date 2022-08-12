@@ -49,7 +49,7 @@ const ajax = async (url, method = 'GET', body = null, callback) => {
     cL("no se puede convertir el objeto a json")
   }
 
-  cL('Response:'); cL(response)
+  // cL('Response:'); cL(response)
   return response
 }
 
