@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { createRef } from 'react'
 import { useRouter } from 'next/router'
-import EasySession from "../component/molecules/EasySession"
+// import EasySession from "../component/molecules/EasySession"
 import Politics from "../component/molecules/Politics"
 import FormLogin from "../component/molecules/FormLogin"
 import AlertSpan from "../component/atoms/AlertSpan"
