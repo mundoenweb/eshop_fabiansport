@@ -4,6 +4,7 @@ import React, { useEffect } from 'react'
 import store from 'redux/store'
 import { endSesion } from 'redux/actionCreators'
 import nProgress from 'nprogress'
+import Image from 'next/image'
 
 const Close = () => {
   const router = useRouter()
@@ -22,9 +23,11 @@ const Close = () => {
       <div className="banner-home box-close-sesion">
         <div className="box-content-banner-principal">
           <div className="content-banner-principal-home">
-            <img src={`${process.env.STATIC_PUBLIC}images/sesion-off.svg`}
+            <Image
+              width={180}
+              height={180}
+              src={`${process.env.STATIC_PUBLIC}images/sesion-off.svg`}
               alt="logo"
-              className="img-close-sesion"
             />
             <p>Cerrando Sesión...</p>
           </div>

@@ -55,19 +55,26 @@ const BannerMain = ({ isPhone }) => {
       <div className="cap-bg-img-home"></div>
       <div className="box-content-banner-principal">
         <div className="content-banner-principal-home" ref={boxBannerContent}>
-          <img src={`${process.env.STATIC_PUBLIC}images/logo_letras_blancas.svg`}
-            alt="logo"
-            className="img-logo-banner-home"
-          />
+          <div className="img-logo-banner-home">
+            <Image
+              src={`/images/logo_letras_blancas.svg`}
+              layout='fill'
+              alt="logo"
+            />
+          </div>
           <Link href="/productos/todos">
             <a className="button button-white buttom-baner-home">Ver Productos</a>
           </Link>
 
-          <img src="/images/flecha-abajo.svg"
-            className="buttom-baner-home-more"
-            alt="siguiente"
-            onClick={moreHome}
-          />
+          <div className="buttom-baner-home-more">
+            <Image
+              width={54}
+              height={20}
+              src="/images/flecha-abajo.svg"
+              alt="ver mas"
+              onClick={moreHome}
+            />
+          </div>
 
         </div>
       </div>

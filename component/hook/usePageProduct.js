@@ -9,14 +9,14 @@ export const changueModel = (codeCurrent, code, idDad, router) => {
 
 //cambia la imagen de la galeria
 let positionImg = 0
-export const useChangeImgGallery = ( action, images, gallery) => {
+export const handleChangeImgGallery = (action, images, gallery) => {
 
 
   // if (resetGallery) {
   //   positionImg = 0
   //   setResetGallery(false)
   // }
-  
+
   nProgress.start()
 
   switch (action) {

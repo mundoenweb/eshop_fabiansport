@@ -111,15 +111,11 @@ export const consultShopping = async (idUser, token, setShopping) => {
             .then(items => {
               invoice.products = items.data.data
             })
-          
-            setTimeout(() => {
-              setShopping(res.data.data)
-              console.log(invoices)
-            }, 2000)
-          return
         }
       }
-      setShopping([])
+      setTimeout(() => {
+        setShopping(res.data.data)
+      }, 1000)
     })
     .catch(err => console.log(err))
     .then(() => NProgress.done())

@@ -1,15 +1,16 @@
 import Private from "component/atoms/Private"
 import { handlePayment } from "component/hook/handlePayment"
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { connect } from "react-redux"
 
-const Finish = ({ 
+const Finish = ({
   isLogged,
   user,
   token,
   cart
- }) => {
+}) => {
   const router = useRouter()
 
   if (!isLogged) return <Private />
@@ -28,7 +29,12 @@ const Finish = ({
   return (
     <>
       <div className="mw-flex-column box-finish-sales">
-        <img src={`${process.env.STATIC_PUBLIC}images/comprobar.svg`} alt="exitoso" />
+        <Image
+          width={90}
+          height={90}
+          src={`/images/comprobar.svg`}
+          alt="exitoso"
+        />
         <p>
           {
             responseMP.status === 'approved'

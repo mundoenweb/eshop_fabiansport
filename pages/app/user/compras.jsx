@@ -42,6 +42,7 @@ const Shopping = ({
             <>
               <h1 className="title-first-board">Mis Compras</h1>
               <div className="list-product-board">
+                {console.log(shopping)}
                 {
                   shopping.map(s => (
                     <CardProductBoard key={s.id} image={s.products[0].img}>

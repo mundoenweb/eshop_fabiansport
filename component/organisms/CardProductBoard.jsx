@@ -1,18 +1,32 @@
+import Image from "next/image"
 import Link from "next/link"
 import { loadImage } from "../hook/useScripts"
 
 
 const CardProductBoard = ({ id, image, children, code }) => {
+  console.log(image)
   return (
     <div className="product-board">
       <div className="box-img-product-board">
         {
           id == undefined
             ?
-            <img onLoad={e => loadImage(e)} className="img-product-board" src={image} alt="articulo" />
+            <Image
+              src={image}
+              width={78}
+              height={78}
+              objectFit='contain'
+              alt="articulo"
+            />
             :
             <Link href={`/articulo/${id}/${code || ""}`}>
-              <img onLoad={e => loadImage(e)} className="img-product-board" src={image} alt="articulo" />
+              <Image
+                src={image}
+                width={78}
+                height={78}
+                objectFit='contain'
+                alt="articulo"
+              />
             </Link>
         }
       </div>

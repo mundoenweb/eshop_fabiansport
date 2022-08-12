@@ -1,7 +1,7 @@
 import Link from "next/link"
 import CardProductBoard from "component/organisms/CardProductBoard"
 import { FirstContentBoarad, TwoContentBoarad } from "component/molecules/ContentBoaradProducts"
-import { useState, useEffect, createRef } from "react"
+import { useState, useEffect, createRef, useMemo } from "react"
 import Modal from "component/organisms/Modal"
 import { toShowModal } from "component/hook/useModal"
 import { deleteProduct } from "component/hook/useDelete"
@@ -15,6 +15,7 @@ import { useRouter } from "next/router"
 import BtnPaginationAdmin from "component/molecules/BtnPaginationAdmin"
 import { connect } from "react-redux"
 import Private from "component/atoms/Private"
+import Image from "next/image"
 
 const modalDescount = createRef()
 const modalFiltroBoard = createRef()
@@ -23,17 +24,19 @@ const refFormFilter = createRef()
 
 
 const Productos = ({ isLogged, typeUser, filter }) => {
-  const slug = { descuento: 0, pageActual: 1, stock: 0, relevancia: 0, params: [] }
   const router = useRouter()
+
+  const slug = useMemo(() => ({ descuento: 0, pageActual: 1, stock: 0, relevancia: 0, params: [] }), [])
+  const pageInit = useMemo(() => ({ pages: 1, pageCurrent: 1 }), [])
+
   const [products, setProducts] = useState(false)
-  const [pages, setPages] = useState({ pages: 1, pageCurrent: 1 })
+  const [pages, setPages] = useState(pageInit)
   const [slugFilter, setSlugFilter] = useState(slug)
 
   useEffect(() => {
-    // if (isLogged) 
-    queryProductsBoard(slugFilter, pages, setPages, setProducts)
-  }, [pages, slugFilter])
-  
+    queryProductsBoard(slug, pageInit, setPages, setProducts)
+  }, [slug, pageInit])
+
   if (!isLogged || typeUser != 1) return <Private />
   return (
     <>
@@ -47,7 +50,12 @@ const Productos = ({ isLogged, typeUser, filter }) => {
             </div>
           </div>
           <div className="mw-flex box-btn-new-produt" onClick={() => router.push('nuevo-producto')}>
-            <img className="btn-new-product" src={`${process.env.STATIC_PUBLIC}images/mas.svg`} alt="" />
+            <Image
+              width={30}
+              height={30}
+              src={`${process.env.STATIC_PUBLIC}images/mas.svg`}
+              alt="nuevo producto"
+            />
           </div>
         </div>
 

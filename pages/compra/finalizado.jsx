@@ -1,9 +1,10 @@
 import Private from "component/atoms/Private"
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { connect } from "react-redux"
 
-const Finish = ({isLogged}) => {
+const Finish = ({ isLogged }) => {
   const router = useRouter()
 
   if (!isLogged) return <Private />
@@ -11,10 +12,15 @@ const Finish = ({isLogged}) => {
   return (
     <>
       <div className="mw-flex-column box-finish-sales">
-        <img src={`${process.env.STATIC_PUBLIC}images/comprobar.svg`} alt="exitoso" />
+        <Image
+          width={90}
+          height={90}
+          src={`/images/comprobar.svg`}
+          alt="exitoso"
+        />
         <p>
           Compra realizada exitosamente, pronto nos pondremos en contacto con usted.
-        <br /> <b>Compra {router.query.code}</b>
+          <br /> <b>Compra {router.query.code}</b>
         </p>
         <Link href={`/app/user/compras`} >
           <a className="button button-ghost btn-finish-sales">ver mis comras</a>

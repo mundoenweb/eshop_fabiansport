@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Shops from "../component/atoms/Shops"
 
 const ListProducts = () => {
@@ -11,24 +12,36 @@ const ListProducts = () => {
         </div>
         <div>
           <h2 className="t2">Atención al cliente</h2>
-          <img src={`${process.env.STATIC_PUBLIC}images/soporte.jpg`}
+          <Image
+            width={320}
+            height={150}
+            objectFit='cover'
+            src={`/images/soporte.jpg`}
+            style={{ marginBottom: '12px' }}
             alt="ico"
-            className="images-soporte"
           />
           <ul>
             <li className="item-shop">
-              <img src={`${process.env.STATIC_PUBLIC}images/telefono.svg`}
+              <Image
+                width={20}
+                height={20}
+                src={`/images/telefono.svg`}
                 alt="ico"
-                className="ico-images-shops"
               />
-              958.917.274 / 921.163.409
+              <span style={{ marginLeft: '12px' }}>
+                958.917.274 / 921.163.409
+              </span>
             </li>
             <li className="item-shop">
-              <img src={`${process.env.STATIC_PUBLIC}images/mundo-black.svg`}
+              <Image
+                width={20}
+                height={20}
+                src={`/images/mundo-black.svg`}
                 alt="ico"
-                className="ico-images-shops"
               />
-              ventas@fabiansport.com
+              <span style={{ marginLeft: '12px' }}>
+                ventas@fabiansport.com
+              </span>
             </li>
 
           </ul>

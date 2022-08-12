@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { useQuantityProductsCart } from "../hook/useQuantityProductsCart"
+import { handleQuantityProductsCart } from "../hook/handleQuantityProductsCart"
 
 const CartSummary = ({ cart, children }) => {
   return (
@@ -9,7 +9,7 @@ const CartSummary = ({ cart, children }) => {
         <p>Productos</p>
         <p className="summary-cart">
           {
-            useQuantityProductsCart(cart.products)
+            handleQuantityProductsCart(cart.products)
           }
         </p>
         <p className="p-total">Total</p>

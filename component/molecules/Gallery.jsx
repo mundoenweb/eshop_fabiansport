@@ -1,6 +1,6 @@
 import nProgress from 'nprogress';
 import { createRef } from 'react';
-import { useChangeImgGallery } from '../hook/usePageProduct';
+import { handleChangeImgGallery } from '../hook/usePageProduct';
 
 const galery = createRef()
 
@@ -20,7 +20,7 @@ const Gallery = ({ images, name }) => {
             <div className="btn-galeria" >
               <div
                 className="btn-gallery gallery-back"
-                onClick={() => useChangeImgGallery(
+                onClick={() => handleChangeImgGallery(
                   "back",
                   images,
                   galery.current,
@@ -28,7 +28,7 @@ const Gallery = ({ images, name }) => {
               </div>
               <div
                 className="btn-gallery gallery-next"
-                onClick={() => useChangeImgGallery("next",
+                onClick={() => handleChangeImgGallery("next",
                   images,
                   galery.current,
                 )}>

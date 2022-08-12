@@ -3,8 +3,9 @@ import Private from "component/atoms/Private"
 import { connect } from "react-redux"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
-const PayReceived = ({isLogged}) => {
+const PayReceived = ({ isLogged }) => {
   const router = useRouter()
   const [code, setCode] = useState(null)
 
@@ -18,7 +19,12 @@ const PayReceived = ({isLogged}) => {
   return (
     <>
       <div className="mw-flex-column box-finish-sales">
-        <img src={`${process.env.STATIC_PUBLIC}images/comprobar.svg`} alt="exitoso" />
+        <Image
+          width={90}
+          height={90}
+          src={`/images/comprobar.svg`}
+          alt="exitoso"
+        />
         <p className="t2 title-msg-pay">
           COMPRA REALIZADA <br /> CON EXITO
         </p>

@@ -1,7 +1,7 @@
 import { addToCart } from "../../redux/actionCreators"
 import store from "../../redux/store"
 
-export const useBuyAndAddtoCart = (e, form, cart,
+export const handleBuyAndAddtoCart = (e, form, cart,
     { id, name, image, id_color, name_color, filtro, costo, codigo, descuento, sizes }) => {
 
     e.preventDefault()

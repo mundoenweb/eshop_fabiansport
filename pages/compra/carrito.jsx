@@ -5,6 +5,7 @@ import PaymentTypeImage from "../../component/molecules/PaymentTypeImage"
 import Link from "next/link"
 import { connect } from "react-redux"
 import { deleteProductFromCart } from '../../redux/actionCreators'
+import Image from "next/image"
 
 
 const Cart = ({ cart, deleteFromCart }) => {
@@ -44,7 +45,13 @@ const Cart = ({ cart, deleteFromCart }) => {
               cart.products.map(p => (
                 <li key={p.idDelete} className="mw-grid box-product">
                   <div className="imgProduct">
-                    <img src={p.image} />
+                    <Image
+                      src={p.image}
+                      width={100}
+                      height={100}
+                      objectFit='contain'
+                      alt='aceptamos todas las tarjetas'
+                    />
                   </div>
 
                   <div>

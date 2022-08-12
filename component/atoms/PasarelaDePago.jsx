@@ -7,17 +7,28 @@ const PasarelaDePago = ({ cart, user, token }) => {
   // const router = useRouter()
 
   const [dataMercadopago, setDataMercadopago] = useState()
-  const options = {
-    headers: { Authorization: `Bearer ${token}` }
-  }
-
-
+  
+  
   useEffect(() => {
     const api = `${process.env.API_NODEJS}/mercadopago`
+    const options = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
     const items = []
+    const urlBack = {
+      test: {
+        "success": "http://localhost:3000/compra/procesando_compra",
+        "pending": "http://localhost:3000/compra/procesando_compra",
+        "failure": "http://localhost:3000/compra/pago_rechazado",
+      },
+      production: {
+        "success": "https://www.fabiansport.com/compra/procesando_compra",
+        "pending": "https://www.fabiansport.com/compra/procesando_compra",
+        "failure": "https://www.fabiansport.com/compra/pago_rechazado",
+      }
+    }
 
     const contenedor = document.getElementsByClassName("mercadopago")[0]
-    contenedor.innerText = ''
 
     for (const product of cart.products) {
       items.push({
@@ -30,22 +41,18 @@ const PasarelaDePago = ({ cart, user, token }) => {
       })
     }
 
-
     let order = {
       items,
       payer: {
         email: user.email,
       },
-      back_urls: {
-        "success": "http://localhost:3334/compra/procesando_compra",
-        "pending": "http://localhost:3334/compra/procesando_compra",
-        "failure": "http://localhost:3334/compra/pago_rechazado",
-      }
+      back_urls: urlBack.test
     }
 
     axios.post(api, order, options)
       .then(res => {
         const preferencId = res.data
+        contenedor.innerText = ''
         console.log(preferencId)
 
         const publiKey = {
@@ -78,7 +85,7 @@ const PasarelaDePago = ({ cart, user, token }) => {
         console.log(err)
       })
 
-  }, [cart])
+  }, [cart, token, user.email])
 
   return <div className="mercadopago"></div>
 

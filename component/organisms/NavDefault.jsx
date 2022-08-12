@@ -6,6 +6,7 @@ import MenuUser from 'component/atoms/MenuUser'
 import MenuDefaultHeader from 'component/atoms/MenuDefaultHeader'
 import CartNav from 'component/atoms/CartNav'
 import { loadImage } from 'component/hook/useScripts'
+import Image from 'next/image'
 
 
 const menu = createRef()
@@ -77,36 +78,36 @@ const NavDefault = ({ typeUser, logged, name, avatar }) => {
               logged === false
                 ?
                 <>
-                  {
-                    isPhone === null
-                      ?
-                      <Link href="/login">
-                        <a className="a-login">Inicia Sesión ó <br /> Registrate Gratis </a>
-                      </Link>
-                      :
-                      <Link href="/login">
-                        <a>
-                          <img className="image-user-nav"
-                            src={`/images/nav/user_login.svg`}
-                            alt="user"
-                          />
-                        </a>
-                      </Link>
-                  }
+                  <Link href="/login">
+                    <a className="image-user-nav">
+                      <Image
+                        width={30}
+                        height={30}
+                        src={`/images/nav/user_login.svg`}
+                        alt="user"
+                      />
+                    </a>
+                  </Link>
                 </>
                 :
                 <>
                   {
                     isPhone === true
                       ?
-                      <img className="image-user-nav"
-                        src={avatar || `/images/nav/user_default.svg`}
-                        alt="login"
-                        onClick={() => toggleMenu(menu)}
-                      />
+                      <span className="image-user-nav">
+                        <Image
+                          width={30}
+                          height={30}
+                          src={avatar || `/images/nav/user_default.svg`}
+                          alt="login"
+                          onClick={() => toggleMenu(menu)}
+                        />
+                      </span>
                       :
-                      <div className="mw-flex" onClick={() => toggleMenu(menuLogin)}>
-                        <img className="image-user-nav"
+                      <div className="mw-flex image-user-nav" onClick={() => toggleMenu(menuLogin)}>
+                        <Image
+                          width={30}
+                          height={30}
                           src={avatar || `/images/nav/user_default.svg`}
                           alt="user"
                         />
@@ -131,12 +132,15 @@ const NavDefault = ({ typeUser, logged, name, avatar }) => {
             logged === false
               ? isPhone === true
                 ?
-                <img onClick={() => toggleMenu(menu)}
-                  className="image-nav-menu"
-                  src={`/images/nav/menu.svg`}
-                  alt="carrito"
-                  onLoad={e => loadImage(e)}
-                />
+                <span className="image-nav-menu">
+                  <Image
+                    width={30}
+                    height={30}
+                    onClick={() => toggleMenu(menu)}
+                    src={`/images/nav/menu.svg`}
+                    alt="menu"
+                  />
+                </span>
                 : <></>
               : <></>
 

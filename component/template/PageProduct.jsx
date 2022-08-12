@@ -1,4 +1,4 @@
-import { useBuyAndAddtoCart } from '../hook/useBuyAddCart';
+import { handleBuyAndAddtoCart } from '../hook/handleBuyAddCart';
 import { useRef, useState } from 'react'
 import { connect } from 'react-redux';
 import { removeFromCart } from '../../redux/actionCreators'
@@ -11,6 +11,7 @@ import PaymentTypeImage from '../molecules/PaymentTypeImage';
 import { useRouter } from 'next/router';
 import ButtonBack from 'component/atoms/ButtonBack';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 
 
@@ -74,7 +75,7 @@ const PageProduct = ({ product, models, cart, idDad, deleteCart, typeUser, curre
 
         <form className="from-sale-product"
           onSubmit={e => {
-            useBuyAndAddtoCart(e, formulary, cart, product)
+            handleBuyAndAddtoCart(e, formulary, cart, product)
             router.push("/compra/carrito")
           }}
           ref={formulary}
@@ -85,18 +86,28 @@ const PageProduct = ({ product, models, cart, idDad, deleteCart, typeUser, curre
             {
               models.map((m, i) => (
                 m.codigo === product.codigo
-                  ? <img
+                  ? <span className=" image_selecet_model model_image_active">
+                    <Image
+                      width={60}
+                      height={50}
+                      objectFit='contain'
+                      onClick={() => changueModel(product.codigo, m.codigo, idDad, router)}
+                      src={m.image}
+                      alt={m.codigo}
+                      key={i}
+                    />
+                  </span>
+                  : <span className=" image_selecet_model">
+                  <Image
+                    width={60}
+                    height={50}
+                    objectFit='contain'
                     onClick={() => changueModel(product.codigo, m.codigo, idDad, router)}
                     src={m.image}
                     alt={m.codigo}
                     key={i}
-                    className=" image_selecet_model model_image_active"
                   />
-                  : <img onClick={() => changueModel(product.codigo, m.codigo, idDad, router)}
-                    src={m.image} alt={m.codigo}
-                    key={i}
-                    className="image_selecet_model"
-                  />
+                </span>
               ))
             }
           </div>
@@ -115,7 +126,7 @@ const PageProduct = ({ product, models, cart, idDad, deleteCart, typeUser, curre
               <a onClick={() => deleteCart(product.id)} className="button button-ghost">BORRAR DEL CARRITO</a>
               :
               <a className="button button-ghost"
-                onClick={e => useBuyAndAddtoCart(e, formulary, cart, product)}
+                onClick={e => handleBuyAndAddtoCart(e, formulary, cart, product)}
               >
                 AGREGAR AL CARRITO
               </a>
