@@ -19,11 +19,4 @@ export const none = element => {
   else element.style.display = 'none'
 }
 
-export const useBodyScroll = (scrollX, scrollY) => {
-  const body = document.querySelector("html")
-  body.style.scrollBehavior = "smooth"
-  setTimeout(() => {
-    scroll(scrollX || 0,scrollY || 0)
-    body.style.scrollBehavior = ""
-  }, 50);
-}
+

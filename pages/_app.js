@@ -22,21 +22,13 @@ Router.events.on('routeChangeError', () => NProgress.done())
 
 function MyApp({ Component, pageProps }) {
 
-  
-
   useEffect(() => {
-
-    addEventListener('DOMContentLoaded', () => {
-      if (innerWidth < 1024) store.dispatch(isPhone(true))
-    })
-    
-    addEventListener("resize", () => {
-      if (innerWidth < 1024) store.dispatch(isPhone(true))
-      else store.dispatch(isPhone(null))
-    })
-
-
     store.dispatch(reloadStateFromLocalStorage(loadState()))
+    if (innerWidth < 1024) {
+      store.dispatch(isPhone(true))
+    } else {
+      store.dispatch(isPhone(false))
+    }
   }, [])
 
   const router = useRouter()

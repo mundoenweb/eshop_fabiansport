@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Presentation from 'component/template/Presentation'
-import BannerMain from '../component/molecules/BannerMain'
+import BannerMain from '../components/pages/Home/BannerMain'
 import GridCatHome from '../component/molecules/GridCatHome'
 import MarcasIndex from '../component/molecules/MarcasIndex'
 
@@ -17,7 +17,7 @@ function Home({ image }) {
   return (
     <>
       {
-        vieVPresetation && <Presentation />
+        // vieVPresetation && <Presentation />
       }
       <BannerMain image={image} />
       <GridCatHome />

@@ -12,14 +12,6 @@
     min-height: calc(100vh - 64px);
   }
 }
-.image-bg-banner-home {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  object-fit: cover;
-  transition: all .3s ease 0s;
-  opacity: 0;
-}
 .cap-bg-img-home {
   height: 100%;
   width: 100%;
