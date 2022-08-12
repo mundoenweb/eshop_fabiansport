@@ -104,25 +104,15 @@ const NavDefault = ({ typeUser, logged, name, avatar }) => {
                         />
                       </span>
                       :
-                      <div className="mw-flex image-user-nav" onClick={() => toggleMenu(menuLogin)}>
+                      <span className='image-user-nav'>
                         <Image
                           width={30}
                           height={30}
+                          onClick={() => toggleMenu(menuLogin)}
                           src={avatar || `/images/nav/user_default.svg`}
                           alt="user"
                         />
-                        {
-                          name != "admin" &&
-                          <a className="a-login name-user"  >
-                            {name.split(" ")[0]} <br />
-                            {
-                              name.split(" ")[1] && name.split(" ")[1].length < 4
-                                ? name.split(" ")[2]
-                                : name.split(" ")[1]
-                            }
-                          </a>
-                        }
-                      </div>
+                      </span>
                   }
                 </>
             }

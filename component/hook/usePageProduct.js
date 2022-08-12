@@ -9,33 +9,27 @@ export const changueModel = (codeCurrent, code, idDad, router) => {
 
 //cambia la imagen de la galeria
 let positionImg = 0
-export const handleChangeImgGallery = (action, images, gallery) => {
-
-
-  // if (resetGallery) {
-  //   positionImg = 0
-  //   setResetGallery(false)
-  // }
+export const handleChangeImgGallery = (action, images, setImage, position, setPosition) => {
 
   nProgress.start()
 
   switch (action) {
     case "next":
-      if (positionImg < (images.length - 1)) {
-        positionImg++
-        gallery.firstElementChild.src = images[positionImg]
+      if (position < (images.length - 1)) {
+        setPosition(position + 1)
+        setImage(images[position + 1])
       } else {
-        positionImg = 0
-        gallery.firstElementChild.src = images[positionImg]
+        setPosition(0)
+        setImage(images[0])
       }
       break;
     case "back":
       if (positionImg > 0) {
-        positionImg--
-        gallery.firstElementChild.src = images[positionImg]
+        setPosition(position - 1)
+        setImage(images[position - 1])
       } else {
-        positionImg = images.length - 1
-        gallery.firstElementChild.src = images[positionImg]
+        setPosition(images.length - 1)
+        setImage(images[images.length - 1])
       }
     default:
       break;

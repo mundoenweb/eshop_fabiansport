@@ -86,7 +86,7 @@ const PageProduct = ({ product, models, cart, idDad, deleteCart, typeUser, curre
             {
               models.map((m, i) => (
                 m.codigo === product.codigo
-                  ? <span className=" image_selecet_model model_image_active">
+                  ? <span key={m.codigo} className=" image_selecet_model model_image_active">
                     <Image
                       width={60}
                       height={50}
@@ -97,7 +97,7 @@ const PageProduct = ({ product, models, cart, idDad, deleteCart, typeUser, curre
                       key={i}
                     />
                   </span>
-                  : <span className=" image_selecet_model">
+                  : <span key={m.codigo} className=" image_selecet_model">
                   <Image
                     width={60}
                     height={50}
