@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 import {
   codeDadUpdate, costUpdate, descountUpdate, descriptionUpdate,
   featuresUpdate, nameUpdate, codeUpdate, updateProducts
-} from "../../../component/hook/useNewProduct"
+} from "../../../component/hook/handleNewProduct"
 import { useRouter } from "next/router"
 import BarOptions from "component/molecules/BarOptions"
 import MultipleSizes from "component/organisms/MultipleSizes"

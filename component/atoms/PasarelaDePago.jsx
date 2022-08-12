@@ -1,6 +1,3 @@
-import { usePaymentPayPal } from 'component/hook/usePayment'
-// import { useRouter } from 'next/router'
-import nProgress from 'nprogress'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'

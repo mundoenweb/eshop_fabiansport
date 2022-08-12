@@ -2,7 +2,7 @@ import { createRef, useEffect, useState } from "react"
 import { useRouter } from 'next/router'
 import { connect } from "react-redux"
 import FormDateUser from "../../component/molecules/FormDateUser"
-import { useCreateDataDelivery } from "../../component/hook/useCreateDataDelivery"
+import { createDataDelivery } from "../../component/hook/createDataDelivery"
 import Private from "component/atoms/Private"
 import { ajax } from "component/hook/Ajax"
 import Link from "next/link"
@@ -14,13 +14,14 @@ const DeliveryAndBulling = ({
 }) => {
   const router = useRouter()
 
-  if (!logged) return <Private />
-
   const [code, setCode] = useState(null)
 
   useEffect(() => {
     setCode(router.query.code)
-  }, [])
+  }, [router.query.code])
+
+  if (!logged) return <Private />
+
 
   return (
     <>
@@ -29,7 +30,7 @@ const DeliveryAndBulling = ({
 
         <div className="list-carrito">
           <form ref={formDateDelivery}
-            onSubmit={e => useCreateDataDelivery(e, router, user, token, formDateDelivery.current, code)}
+            onSubmit={e => createDataDelivery(e, router, user, token, formDateDelivery.current, code)}
           >
             <FormDateUser form={formDateDelivery} />
           </form>

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { useCleanObjectArticle } from 'component/hook/useCleanObjectArticle';
-import { useDestacados } from 'component/hook/useQuery';
+import { destacados } from 'component/hook/useQuery';
 import CardProduct from 'component/CardProduct';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -12,14 +12,12 @@ import { useQuantityStock } from 'component/hook/useQuantityStock';
 
 const Product = ({ product, idDad, currentModel, models }) => {
   const router = useRouter()
+  const [productosDestacados, setProductosDestacados] = useState([])
+  useEffect(() => {
+    destacados(setProductosDestacados)
+  }, [])
 
   if (!product) {
-    const [productosDestacados, setProductosDestacados] = useState([])
-
-    useEffect(() => {
-      useDestacados(setProductosDestacados)
-    }, [])
-
     return (
       <>
         <div className="mw-grid separador"></div>

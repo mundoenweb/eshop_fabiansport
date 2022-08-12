@@ -5,8 +5,8 @@ import UploadImage from "component/molecules/UploadImage"
 import BarOptions from "component/molecules/BarOptions"
 import NewColorProduct from "component/molecules/NewColorProduct"
 import MultipleSizes from "component/organisms/MultipleSizes"
-import { codeUpdate, useNewProduct } from "component/hook/useNewProduct"
-import { useEffect, useState } from "react"
+import { codeUpdate, handleNewProduct } from "component/hook/handleNewProduct"
+import { useEffect } from "react"
 import { connect } from "react-redux"
 import { useRouter } from "next/router"
 
@@ -23,7 +23,7 @@ const NewProduct = ({ articulo, isLogged, typeUser }) => {
     <>
       <div className="mw-grid">
         <BarOptions />
-        <form onSubmit={e => useNewProduct(e, articulo, router)}>
+        <form onSubmit={e => handleNewProduct(e, articulo, router)}>
           <div className="form-profile">
 
             <InputText

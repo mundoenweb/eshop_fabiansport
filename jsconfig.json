@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/style/*": ["css/*"],
+      "@/utils/*": ["utils/*"],
       "@/atoms/*": ["components/atoms/*"],
       "@/molecules/*": ["components/molecules/*"],
       "@/organisms/*": ["components/organisms/*"],

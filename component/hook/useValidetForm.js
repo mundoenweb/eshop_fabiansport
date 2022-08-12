@@ -1,4 +1,4 @@
-import { useBodyScroll } from "./useScripts"
+import { handleBodyScroll } from "@/utils/handleBodyScroll"
 
 /* Este archivo depende de las fuciones
    correcto(), error(), alertForm(), formatNum(), formatMoneda
@@ -97,6 +97,6 @@ const alertForm = (campoForm, typeAlert = 0) => {
     `La clave debe ser mayor a 8 digitos`
   ]
   campoForm.nextElementSibling.innerText = msgs[typeAlert]
-  if (scrollY) useBodyScroll(0, ((positionCampo.top + scrollY) - 100))
+  if (scrollY) handleBodyScroll(0, ((positionCampo.top + scrollY) - 100))
   error(campoForm)
 }

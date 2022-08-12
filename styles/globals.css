@@ -13,6 +13,7 @@
 @import url("pages.css");
 @import url("login.css");
 @import url("whatsapp.css");
+@import url("nprogress.css");
 
 .toShow {
   display: block;

@@ -4,8 +4,8 @@ import InputTextTarea from "../../../component/atoms/InputTextTarea"
 import UploadImage from "../../../component/molecules/UploadImage"
 import { connect } from "react-redux"
 import { codeDadUpdate, costUpdate, descountUpdate, descriptionUpdate,
-  featuresUpdate, nameUpdate, useNewProduct
-} from "../../../component/hook/useNewProduct"
+  featuresUpdate, nameUpdate, handleNewProduct
+} from "../../../component/hook/handleNewProduct"
 import { useRouter } from "next/router"
 import BarOptions from "component/molecules/BarOptions"
 import MultipleSizes from "component/organisms/MultipleSizes"
@@ -25,7 +25,7 @@ const NewProduct = ({ articulo, isLogged, typeUser }) => {
     <>
       <div className="mw-grid">
         <BarOptions />
-        <form onSubmit={e => useNewProduct(e, articulo, router)}>
+        <form onSubmit={e => handleNewProduct(e, articulo, router)}>
           <div className="form-profile">
             <p className="t2 title-form">Registro producto principal</p>
 

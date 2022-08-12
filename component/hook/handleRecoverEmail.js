@@ -17,7 +17,7 @@ export const useRecoverEmail = async e => {
   alert(`Favor revise su correo y siga las instrucciones`)
 }
 
-export const useRecoverEmail_2 = async (e, router) => {
+export const handleRecoverEmail_2 = async (e, router) => {
   e.preventDefault()
   const form = e.target
 

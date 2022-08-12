@@ -1,5 +1,5 @@
 import InputEmail from 'component/atoms/InputText'
-import { useRecoverEmail } from 'component/hook/useRecoverEmail'
+import { useRecoverEmail } from 'component/hook/handleRecoverEmail'
 import React from 'react'
 
 const componentName = () => {

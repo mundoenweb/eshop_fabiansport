@@ -69,7 +69,6 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="#202020" />
 
         <link rel="icon" type="image.png" sizes="192x192" href="/images/favicon.png" />
-        <link re type="text/css" href="/nprogress.css" />
       </Head>
       
       <Script src="https://sdk.mercadopago.com/js/v2" />

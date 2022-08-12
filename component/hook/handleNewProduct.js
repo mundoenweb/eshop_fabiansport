@@ -29,7 +29,7 @@ export const codeDadUpdate = evt => {
   store.dispatch(updateCodeDad(evt.target.value))
 }
 
-export const useNewProduct = async (evt, articulo, router) => {
+export const handleNewProduct = async (evt, articulo, router) => {
   evt.preventDefault()
   const formulary = evt.target
   const form = new FormData()

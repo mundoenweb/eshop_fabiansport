@@ -9,7 +9,7 @@ let response = null
 
 
 //inicia sesion por medio de correo electronico
-export const useStartSesionEmail = (e, err, router) => {
+export const handleStartSesionEmail = (e, err, router) => {
   e.preventDefault()
   NProgress.start()
 
@@ -53,7 +53,7 @@ export const useStartSesionEmail = (e, err, router) => {
 }
 
 //registra un nuevo cliente mediante correo electronico en la db y actualiza el estado global
-export const useRegisClient = async (e, error, router) => {
+export const handleRegisClient = async (e, error, router) => {
   e.preventDefault()
   const form = e.target
   const formData = new FormData()

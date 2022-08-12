@@ -9,7 +9,7 @@ const apiNode = process.env.API_NODEJS
 let response = null
 
 // realiza una consulta según los parametros del filtro personalizado
-export const useQueryProductsBoard = async (slugFilter, pages, setPages, setState) => {
+export const queryProductsBoard = async (slugFilter, pages, setPages, setState) => {
   NProgress.start()
   if (!slugFilter.params.length && !slugFilter.descuento && !slugFilter.stock) {
     let response = await ajax(`${api}/productosAdmin?page=${pages.pageCurrent}`)
@@ -39,7 +39,7 @@ export const useQueryProductsBoard = async (slugFilter, pages, setPages, setStat
 }
 
 // actualiza el estado de los parametros de consulta
-export const useSearchBoard = (e, setSlugFilter, modal) => {
+export const searchBoard = (e, setSlugFilter, modal) => {
   e.preventDefault()
   NProgress.start();
   let slug = { descuento: 0, pageActual: 1, stock: 0, relevancia: 0, params: [] }
@@ -72,7 +72,7 @@ export const useSearchBoard = (e, setSlugFilter, modal) => {
 }
 
 // Realiza una consulta por nombre o codigo
-export const useSearchCodeName = async (e, setState, setPages, refFormFilter) => {
+export const searchCodeName = async (e, setState, setPages, refFormFilter) => {
   e.preventDefault()
   let input = e.target.searchBoard, response
   if (!input.value) {
@@ -96,7 +96,7 @@ export const useSearchCodeName = async (e, setState, setPages, refFormFilter) =>
 }
 
 // consulta las compras
-export const useConsultShopping = async (idUser, token, setShopping) => {
+export const consultShopping = async (idUser, token, setShopping) => {
   const options = {
     headers: { Authorization: `Bearer ${token}` }
   }
@@ -126,7 +126,7 @@ export const useConsultShopping = async (idUser, token, setShopping) => {
 }
 
 // consulta las ventas
-export const useConsultSales = async (page, setSales, setPages) => {
+export const consultSales = async (page, setSales, setPages) => {
   NProgress.start()
   const resp = await ajax(`${process.env.API}/facturasAdmin?page=${page}`)
   if (!valideteResponse(resp)) return NProgress.done()
@@ -137,7 +137,7 @@ export const useConsultSales = async (page, setSales, setPages) => {
   NProgress.done()
 }
 
-export const useRemoveFilterPubli = (setSlugFilter, refFormFilter) => {
+export const removeFilterPubli = (setSlugFilter, refFormFilter) => {
   refFormFilter.reset()
   setSlugFilter({ descuento: 0, pageActual: 1, stock: 0, relevancia: 0, params: [] })
 }

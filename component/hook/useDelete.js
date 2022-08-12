@@ -4,7 +4,7 @@ import NProgress from 'nprogress'
 const api = process.env.API
 let response = null
 
-export const useDeleteProduct = async (id, name, state, setState) => {
+export const deleteProduct = async (id, name, state, setState) => {
   const resp = confirm(`¿Seguro que desea eliminar el producto: ${name}?`)
   if (!resp) return
   NProgress.start()

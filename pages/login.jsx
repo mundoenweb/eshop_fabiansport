@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import Politics from "../component/molecules/Politics"
 import FormLogin from "../component/molecules/FormLogin"
 import AlertSpan from "../component/atoms/AlertSpan"
-import { useStartSesionEmail } from "../component/hook/useSession"
+import { handleStartSesionEmail } from "../component/hook/handleSession"
 
 
 const msgErr = createRef()
@@ -18,7 +18,7 @@ const Login = () => {
     <>
       <div className="mw-grid">
         <div className="mw-grid separador"></div>
-        <form className="mw-grid form-login" onSubmit={e => useStartSesionEmail(e, msgErr, router)} >
+        <form className="mw-grid form-login" onSubmit={e => handleStartSesionEmail(e, msgErr, router)} >
           {/* <EasySession /> */}
           <FormLogin />
           <AlertSpan none="none" color="red" center="center" referencia={msgErr} />

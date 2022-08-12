@@ -1,12 +1,11 @@
 import Link from "next/link"
-import { createRef, useEffect } from 'react'
-import { connect } from "react-redux"
+import { createRef } from 'react'
 import { useRouter } from 'next/router'
-import EasySession from "../component/molecules/EasySession"
+// import EasySession from "../component/molecules/EasySession"
 import Politics from "../component/molecules/Politics"
 import FormRegis from "../component/molecules/FormRegis"
 import AlertSpan from "../component/atoms/AlertSpan"
-import { useRegisClient } from "../component/hook/useSession"
+import { handleRegisClient } from "../component/hook/handleSession"
 
 const msgErr = createRef()
 
@@ -18,7 +17,7 @@ const Registro = () => {
     <>
       <div className="mw-grid">
         <div className="mw-grid separador"></div>
-        <form className="mw-grid form-login" onSubmit={e => useRegisClient(e, msgErr, router)} >
+        <form className="mw-grid form-login" onSubmit={e => handleRegisClient(e, msgErr, router)} >
           {/* <EasySession /> */}
           <FormRegis />
           <AlertSpan none="none" color="red" center="center" referencia={msgErr} />

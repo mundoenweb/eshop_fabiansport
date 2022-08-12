@@ -6,14 +6,14 @@ import { useEffect, useState } from "react"
 
 const PayReceived = ({isLogged}) => {
   const router = useRouter()
-
-  if (!isLogged) return <Private />
-
   const [code, setCode] = useState(null)
 
   useEffect(() => {
     setCode(router.query.code)
-  }, [])
+  }, [router.query.code])
+
+  if (!isLogged) return <Private />
+
 
   return (
     <>

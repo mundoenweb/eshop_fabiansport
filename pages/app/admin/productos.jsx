@@ -4,9 +4,9 @@ import { FirstContentBoarad, TwoContentBoarad } from "component/molecules/Conten
 import { useState, useEffect, createRef } from "react"
 import Modal from "component/organisms/Modal"
 import { toShowModal } from "component/hook/useModal"
-import { useDeleteProduct } from "component/hook/useDelete"
+import { deleteProduct } from "component/hook/useDelete"
 import InputNumber from "component/atoms/InputNumber"
-import { useQueryProductsBoard, useRemoveFilterPubli, useSearchBoard, useSearchCodeName } from "component/hook/useQuery"
+import { queryProductsBoard, removeFilterPubli, searchBoard, searchCodeName } from "component/hook/useQuery"
 import { updateDescount } from "component/hook/useUpdate"
 import InputSearch from "component/atoms/InputSearch"
 import InputSelect from "component/atoms/InputSelect"
@@ -23,8 +23,6 @@ const refFormFilter = createRef()
 
 
 const Productos = ({ isLogged, typeUser, filter }) => {
-  if (!isLogged || typeUser != 1) return <Private />
-  
   const slug = { descuento: 0, pageActual: 1, stock: 0, relevancia: 0, params: [] }
   const router = useRouter()
   const [products, setProducts] = useState(false)
@@ -33,18 +31,19 @@ const Productos = ({ isLogged, typeUser, filter }) => {
 
   useEffect(() => {
     // if (isLogged) 
-    useQueryProductsBoard(slugFilter, pages, setPages, setProducts)
-  }, [slugFilter])
-
+    queryProductsBoard(slugFilter, pages, setPages, setProducts)
+  }, [pages, slugFilter])
+  
+  if (!isLogged || typeUser != 1) return <Private />
   return (
     <>
       <section id="topPag" className="mw-grid board">
         <div className="top-search-board">
           <div className="box-search-products">
-            <InputSearch search={e => useSearchCodeName(e, setProducts, setPages, refFormFilter.current)} labelText="Filtrar: codigo ó nombre" name="searchBoard" />
+            <InputSearch search={e => searchCodeName(e, setProducts, setPages, refFormFilter.current)} labelText="Filtrar: codigo ó nombre" name="searchBoard" />
             <div>
               <a onClick={() => toShowModal(modalFiltroBoard)}>Filtro avanzado  </a>
-              -<a onClick={() => useRemoveFilterPubli(setSlugFilter, refFormFilter.current)}>  Borrar filtros</a>
+              -<a onClick={() => removeFilterPubli(setSlugFilter, refFormFilter.current)}>  Borrar filtros</a>
             </div>
           </div>
           <div className="mw-flex box-btn-new-produt" onClick={() => router.push('nuevo-producto')}>
@@ -63,7 +62,7 @@ const Productos = ({ isLogged, typeUser, filter }) => {
                 ?
                 <div className="alert alert-yellow">
                   <span>No se encontrarón productos según lo filtrado - </span>
-                  <a onClick={() => useRemoveFilterPubli(setSlugFilter, refFormFilter.current)}>  Ver todos los productos</a>
+                  <a onClick={() => removeFilterPubli(setSlugFilter, refFormFilter.current)}>  Ver todos los productos</a>
                 </div>
                 :
                 products.map(p => (
@@ -81,7 +80,7 @@ const Productos = ({ isLogged, typeUser, filter }) => {
                       >
                         Descuento
                       </a>
-                      <a onClick={() => useDeleteProduct(p.id, p.name, products, setProducts)}>Eliminar</a>
+                      <a onClick={() => deleteProduct(p.id, p.name, products, setProducts)}>Eliminar</a>
                     </>
                   </CardProductBoard>
                 ))
@@ -105,7 +104,7 @@ const Productos = ({ isLogged, typeUser, filter }) => {
       </Modal>
 
       <Modal name="Filtro de productos avanzado" typeModal="ModalBasic" referencia={modalFiltroBoard}>
-        <form className="form-status" ref={refFormFilter} onSubmit={e => useSearchBoard(e, setSlugFilter, modalFiltroBoard)}>
+        <form className="form-status" ref={refFormFilter} onSubmit={e => searchBoard(e, setSlugFilter, modalFiltroBoard)}>
           <InputSelect onchan labelText="Selecciona el Sexo" name="genero" required={false} >
             <option></option>
             {

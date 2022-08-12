@@ -1,7 +1,7 @@
 import store from '../../redux/store'
 import axios from 'axios'
 import { validateForm } from './useValidetForm'
-import { useBodyScroll } from './useScripts'
+import { handleBodyScroll } from '@/utils/handleBodyScroll'
 import nProgress from 'nprogress'
 import {
   updateProfileUser,
@@ -108,7 +108,7 @@ export const useUpdateProfileUser = async (
 
 
 
-  useBodyScroll()
+  handleBodyScroll()
   nProgress.done()
   // alert('datos actualizados correctamentea')
   // store.dispatch(updateProfileUser(profile))

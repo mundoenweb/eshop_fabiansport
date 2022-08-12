@@ -7,7 +7,7 @@ import Modal from "../../../component/organisms/Modal"
 import { toShowModal } from "../../../component/hook/useModal"
 import { updateStatusVenta } from "../../../component/hook/useUpdate"
 import BtnPaginationAdmin from "../../../component/molecules/BtnPaginationAdmin"
-import { useConsultSales } from "../../../component/hook/useQuery"
+import { consultSales } from "../../../component/hook/useQuery"
 import { connect } from "react-redux"
 import Private from "component/atoms/Private"
 
@@ -20,11 +20,9 @@ const Sales = ({ isLogged, typeUser }) => {
   const [pages, setPages] = useState({ pages: 1, pageCurrent: 1 })
   const [pagin, setPagin] = useState({ num_page: 1 })
 
-
-
   useEffect(() => {
-    if (isLogged) useConsultSales(pagin.num_page, setSales, setPages)
-  }, [pagin])
+    if (isLogged) consultSales(pagin.num_page, setSales, setPages)
+  }, [isLogged, pagin])
 
   if (!isLogged || typeUser != 1) return <Private />
   if (sales === false) return (

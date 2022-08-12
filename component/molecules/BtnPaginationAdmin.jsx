@@ -1,16 +1,16 @@
-import { useBodyScroll } from '../hook/useScripts'
+import { handleBodyScroll } from '@/utils/handleBodyScroll'
 
 const BtnPaginationAdmin = ({pages, setPages, slugFilter, setSlugFilter}) => {
 
   const nextPag = () => {
     setPages({ ...pages, pageCurrent: pages.pageCurrent + 1 })
     setSlugFilter({ ...slugFilter, pageActual: slugFilter.pageActual + 1 })
-    useBodyScroll()
+    handleBodyScroll()
   }
   const backPag = () => {
     setPages({ ...pages, pageCurrent: pages.pageCurrent - 1 })
     setSlugFilter({ ...slugFilter, pageActual: slugFilter.pageActual - 1 })
-    useBodyScroll()
+    handleBodyScroll()
   }
 
   return (

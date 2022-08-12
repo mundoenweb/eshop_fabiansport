@@ -1,5 +1,5 @@
 import Private from "component/atoms/Private"
-import { usePayment } from "component/hook/usePayment"
+import { handlePayment } from "component/hook/handlePayment"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { connect } from "react-redux"
@@ -22,7 +22,7 @@ const Finish = ({
 
   const processOrder = (event) => {
     event.preventDefault()
-    usePayment(user, cart, responseMP, token, router)
+    handlePayment(user, cart, responseMP, token, router)
   }
 
   return (

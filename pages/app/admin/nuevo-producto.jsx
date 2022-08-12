@@ -12,10 +12,14 @@ import Private from "component/atoms/Private"
 
 const NewProductOne = ({ isLogged, typeUser, loadProduct, productDad, resetProduct }) => {
 
-    if (!isLogged || typeUser != 1) return <Private />
+  const route = useRouter()
 
-    const route = useRouter()
-    
+  useEffect(() => {
+    if (productDad.name) resetProduct(stateProductNew)
+}, [productDad.name, resetProduct])
+
+  if (!isLogged || typeUser != 1) return <Private />
+  
     const submitForm = e => {
         e.preventDefault()
         if (e.target.type_new_product.value === "new") route.push('nuevo-producto-padre')
@@ -57,9 +61,7 @@ const NewProductOne = ({ isLogged, typeUser, loadProduct, productDad, resetProdu
         resetProduct(stateProductNew)
     }
 
-    useEffect(() => {
-        if (productDad.name) resetProduct(stateProductNew)
-    }, [])
+    
 
     return (
         <div className="mw-grid">

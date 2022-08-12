@@ -5,7 +5,7 @@ import nProgress from 'nprogress'
 
 const api = process.env.API_NODEJS
 
-export const useCreateDataDelivery = async (
+export const createDataDelivery = async (
   e, router, profileUser, token,
   formulary, code) => {
 

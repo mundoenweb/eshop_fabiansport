@@ -14,7 +14,7 @@ const Close = () => {
     setTimeout(() => {
       router.push('/')
     }, 2500);
-  }, [])
+  }, [router])
 
   return (
     <>

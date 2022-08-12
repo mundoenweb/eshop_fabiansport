@@ -3,7 +3,7 @@ import CardProductBoard from "../../../component/organisms/CardProductBoard"
 import { FirstContentBoarad, TwoContentBoarad } from "../../../component/molecules/ContentBoaradShopping"
 import { useEffect, useState } from "react"
 import { connect } from "react-redux"
-import { useConsultShopping } from '../../../component/hook/useQuery'
+import { consultShopping } from '../../../component/hook/useQuery'
 import Private from "component/atoms/Private"
 
 const Shopping = ({ 
@@ -13,8 +13,8 @@ const Shopping = ({
   const [shopping, setShopping] = useState(false)
 
   useEffect(() => {
-    if (isLogged) useConsultShopping(idUser, token, setShopping)
-  }, [])
+    if (isLogged) consultShopping(idUser, token, setShopping)
+  }, [idUser, isLogged, token])
 
   if (!isLogged) return <Private />
   if (shopping === false) return (

@@ -5,7 +5,7 @@ import { resetCart } from "redux/actionCreators"
 import { stateCart } from "redux/stateInitial"
 
 
-export const usePayment = async (user, cart, mercadopago, token, router) => {
+export const handlePayment = async (user, cart, mercadopago, token, router) => {
   const items = []
   const api = process.env.API_NODEJS
   const options = {
