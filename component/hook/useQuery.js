@@ -102,20 +102,33 @@ export const consultShopping = async (idUser, token, setShopping) => {
   }
   NProgress.start()
   axios(`${apiNode}/invoices/user/${idUser}`, options)
-    .then(res => {
-      let invoices = res.data.data
+    .then(async (res) => {
+      const invoices = await new Promise((resolve, reject) => {
+        let shoppings = [...res.data.data]
+        let count = 0
+        if (shoppings.length) {
+          for (const shopping of shoppings) {
+            axios(`${apiNode}/shoppingCart/${shopping.codigo}`, options)
+              .then(items => {
+                count++
+                shopping.products = items.data.data
 
-      if (invoices.length) {
-        for (const invoice of invoices) {
-          axios(`${apiNode}/shoppingCart/${invoice.codigo}`, options)
-            .then(items => {
-              invoice.products = items.data.data
-            })
-        }
-      }
-      setTimeout(() => {
-        setShopping(res.data.data)
-      }, 1000)
+                if (count === shoppings.length) {
+                  resolve(shoppings)
+                }
+              })
+              .catch((e) => {
+                console.log(e)
+                count++
+                shopping.products = {}
+                if (count === shoppings.length) {
+                  resolve(shoppings)
+                }
+              })
+          }
+        } else return resolve(null)
+      })
+      setShopping(invoices)
     })
     .catch(err => console.log(err))
     .then(() => NProgress.done())
