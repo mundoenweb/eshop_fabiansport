@@ -13,11 +13,11 @@ const nextConfig = {
     API: 'https://fabiansport.com/fs/api', // api desarrollada en php, en desuso
     API_NODEJS: 'https://apinode.fabiansport.com'
   },
-  //   experimental: {
-  //   images: {
-  //     unoptimized: true,
-  //   }
-  // }
+    experimental: {
+    images: {
+      unoptimized: true,
+    }
+  }
 }
   
 module.exports = nextConfig
