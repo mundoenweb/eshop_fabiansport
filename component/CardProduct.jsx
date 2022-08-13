@@ -14,10 +14,6 @@ const CardProduct = ({
 
   const [animate, setAnimate] = useState('animete')
 
-  // useEffect(() => {
-  //   setAnimate('animete')
-  // }, [image])
-
   const delteAnimateLoad = () => {
     setAnimate('')
   }

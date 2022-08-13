@@ -9,6 +9,7 @@ const Gallery = ({ images, name }) => {
 
   const [image, setImage] = useState(images[0])
   const [position, setPosition] = useState(0)
+  const [animate, setAnimate] = useState("animate")
 
   useEffect(() => {
     setImage(images[0])
@@ -23,13 +24,18 @@ const Gallery = ({ images, name }) => {
     handleChangeImgGallery("back", images, setImage, position, setPosition)
   }
 
+  const delteAnimateLoad = () => {
+    setAnimate('')
+  }
+
   return (
-    <div className="gallery-sale" ref={galery}>
+    <div className={`gallery-sale ${animate}`} ref={galery}>
       <Image
         layout='fill'
         src={image}
         alt={name}
         priority
+        onLoadingComplete={delteAnimateLoad}
         onLoad={() => nProgress.done()}
       />
       {

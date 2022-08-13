@@ -199,3 +199,14 @@
 .model_image_active {
   border-color: chocolate;
 }
+
+.animate {
+  background: hsl(0, 0%, 80%) ;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0%   {background-color: hsl(0, 0%, 80%);}
+  50%  {background-color: hsl(0, 0%, 90%);}
+  100% {background-color: hsl(0, 0%, 80%);}
+}

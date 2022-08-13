@@ -8,8 +8,10 @@ export const changueModel = (codeCurrent, code, idDad, router) => {
 }
 
 //cambia la imagen de la galeria
-let positionImg = 0
-export const handleChangeImgGallery = (action, images, setImage, position, setPosition) => {
+export const handleChangeImgGallery = (
+  action, images, setImage,
+  position, setPosition
+) => {
 
   nProgress.start()
 
@@ -24,7 +26,7 @@ export const handleChangeImgGallery = (action, images, setImage, position, setPo
       }
       break;
     case "back":
-      if (positionImg > 0) {
+      if (position > 0) {
         setPosition(position - 1)
         setImage(images[position - 1])
       } else {
