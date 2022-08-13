@@ -13,6 +13,7 @@ import { useQuantityStock } from 'component/hook/useQuantityStock';
 const Product = ({ product, idDad, currentModel, models }) => {
   const router = useRouter()
   const [productosDestacados, setProductosDestacados] = useState([])
+  {console.log(router.query.slug)}
   useEffect(() => {
     destacados(setProductosDestacados)
   }, [])

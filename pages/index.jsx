@@ -2,7 +2,7 @@ import BannerMain from '../components/pages/Home/BannerMain'
 import GridCatHome from '../component/molecules/GridCatHome'
 import MarcasIndex from '../component/molecules/MarcasIndex'
 
-function Home({}) {
+function Home() {
 
   return (
     <>

@@ -68,9 +68,9 @@ const Like = ({
       {
         listLike.find(p => p.id_producto === id)
           ?
-          <img className={css} onClick={() => removeLike()} src={`${process.env.STATIC_PUBLIC}images/corazon_relleno.svg`} alt="removeLike" />
+          <img className={css} onClick={() => removeLike()} src={`/images/corazon_relleno.svg`} alt="removeLike" />
           :
-          <img className={css} onClick={() => addLike()} src={`${process.env.STATIC_PUBLIC}images/corazon_vacio.svg`} alt="addLike" />
+          <img className={css} onClick={() => addLike()} src={`/images/corazon_vacio.svg`} alt="addLike" />
       }
     </>
   )

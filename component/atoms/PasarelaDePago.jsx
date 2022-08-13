@@ -46,7 +46,7 @@ const PasarelaDePago = ({ cart, user, token }) => {
       payer: {
         email: user.email,
       },
-      back_urls: urlBack.test
+      back_urls: urlBack.production
     }
 
     axios.post(api, order, options)
