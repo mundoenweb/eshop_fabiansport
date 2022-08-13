@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import Link from 'next/link'
 import Image from 'next/image'
 
-import FamilyProduct from './molecules/familyProduct'
+import FamilyProduct from './molecules/FamilyProduct'
 import { useState } from 'react'
 
 
