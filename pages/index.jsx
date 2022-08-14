@@ -1,18 +1,20 @@
-import BannerMain from '../components/pages/Home/BannerMain'
-import GridCatHome from '../component/molecules/GridCatHome'
-import MarcasIndex from '../component/molecules/MarcasIndex'
+import Banner from '../components/common/Banner'
+import ContentBanner from '@/components/pages/Home/ContentBanner'
+import GridCategoryHome from '../components/pages/Home/GridCategoryHome'
+import BannerQtyProducts from '@/components/pages/Home/BannerQtyProducts'
+import GridBrandsHome from '../components/pages/Home/GridBrandsHome'
+import styles from '@/style/pages/home.module.css'
 
 function Home() {
-
   return (
     <>
-      <BannerMain />
-      <GridCatHome />
-      <div className="box-banner-letras center">
-        <h2 className="title-banner-letras">Más de 900 Productos <br /> Al Mejor Precio</h2>
-      </div>
-      <MarcasIndex />
-      <div className="mw-grid separador"></div>
+      <Banner>
+        <ContentBanner styles={styles} />
+      </Banner>
+      <GridCategoryHome styles={styles} />
+      <BannerQtyProducts styles={styles} />
+      <GridBrandsHome styles={styles} />
+      <div className="mw-grid separador" />
     </>
   )
 }

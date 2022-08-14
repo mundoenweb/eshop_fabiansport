@@ -1,0 +1,12 @@
+.banner {
+  height: calc(100vh - 56px);
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-neutral);
+  transition: .4s;
+}
+@media screen and (min-width: 1024px) {
+  .banner {
+    min-height: calc(100vh - 64px);
+  }
+}

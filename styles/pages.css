@@ -1,71 +1,3 @@
-/* index */
-/* index - banner */
-.banner-home {
-  min-height: calc(100vh - 56px - 56px);
-  overflow: hidden;
-  position: relative;
-  background-color: var(--color-neutral);
-  transition: .4s;
-}
-@media screen and (min-width: 1024px) {
-  .banner-home {
-    min-height: calc(100vh - 64px);
-  }
-}
-.cap-bg-img-home {
-  height: 100%;
-  width: 100%;
-  background-color: var(--color-neutral);
-  opacity: .35;
-  position: absolute;
-}
-.content-banner-principal-home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 56px - 56px);
-  transition: .4s;
-}
-@media screen and (min-width: 1024px) {
-  .content-banner-principal-home {
-    min-height: calc(100vh - 64px);
-  }
-}
-.img-logo-banner-home {
-  width: 75vw;
-  height: 220px;
-  position: relative;
-  transition: .4s;
-}
-@media screen and (min-width: 640px) {
-  .img-logo-banner-home {  
-    height: 220px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .img-logo-banner-home {  
-    height: 320px;
-  }
-}
-.buttom-baner-home {
-  width: 200px;
-  margin-top: 24px;
-  transition: .4s;
-}
-.buttom-baner-home-more {
-  position: absolute;
-  bottom: 12px;
-  height: 20px;
-  opacity: .85;
-  cursor: pointer;
-  transition: .4s;
-  margin: auto;
-}
-.buttom-baner-home-more:hover {
-  opacity: 1;
-}
-
 /* banner rectangular */
 .banner-main {
   height: 220px;
@@ -117,11 +49,6 @@
     height: 400px;
   }
 }
-.box-content-banner-principal {
-  color: white;
-  position: absolute;
-  width: 100%;
-}
 .content-banner-principal {
   display: flex;
   justify-content: center;
@@ -148,137 +75,15 @@
     width: auto;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .img-logo-banner {  
     height: 260px;
   }
 }
 
-/* index - cuadros - categoria - basic */
-.box-cat-images {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
-  position: relative;
-  margin-top: 24px;
-}
-@media screen and (min-width: 640px) {
-  .box-cat-images {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-@media screen and (min-width: 1024px) {
-  .box-cat-images {
-    gap: 54px;
-    margin-top: 48px;
-  }
-}
 
-.box-img-categoria {
-  background-color: var(--color-neutral-5);
-  overflow: hidden;
-  height: 120px;
-  position: relative;
-}
-@media screen and (min-width: 640px) {
-  .box-img-categoria {
-    height: 140px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .box-img-categoria {
-    height: 182px;
-  }
-}
-.img-cat-index {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: .5s;
-}
-.box-img-categoria:hover .img-cat-index {
-  width: 110%;
-  height: 110%;
-  transition: .5s;
-}
-.box-title-cat-index {
-  position: absolute;
-  bottom: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 28px;
-}
-.cap-bg-title-cat {
-  position: absolute;
-  width: 100%;
-  height: 28px;
-  background-color: var(--color-neutral-2);
-  opacity: .8;
-  top: 0;
-}
-.title-categoria-basic {
-  margin: 0px;
-  color: white;
-  position: absolute;
-  font-size: 15px;
-}
-/* index - banner letras */
-.box-banner-letras {
-  margin-top: 24px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-yellow-2);
-}
-@media screen and (min-width: 1024px) {
-  .box-banner-letras {
-    margin-top: 48px;
-    height: 200px;
-  }
-}
-.title-banner-letras {
-  font-weight: 500;
-}
-@media screen and (min-width: 1024px) {
-  .title-banner-letras {
-    font-size: 36px;
-  }
-}
-/* index - grid marcas */
-.title-grid-brands {
-  margin-top: 24px;
-  margin-bottom: 0px;
-}
-@media screen and (min-width: 1024px) {
-  .title-grid-brands {
-    margin-top: 48px;
-  }
-}
-.grid-marcas {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 24px;
-}
-@media screen and (min-width: 640px) {
-  .grid-marcas {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-@media screen and (min-width: 1024px) {
-  .grid-marcas {
-    row-gap: 48px;
-    margin-top: 48px;
-  }
-}
-.grid-marcas img {
-  height: 60px;
-  width: 100%;
-  object-fit: contain;
-}
+
+
 
 /* tiendas */
 .box-shops {
