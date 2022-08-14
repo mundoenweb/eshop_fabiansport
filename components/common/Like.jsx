@@ -1,4 +1,4 @@
-import { ajax, valideteResponse } from '../hook/Ajax'
+import { ajax, valideteResponse } from '../../component/hook/Ajax'
 import nProgress from 'nprogress'
 import { connect } from 'react-redux'
 import { addToLike, deletFromLike } from '../../redux/actionCreators'

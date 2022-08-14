@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { removeFromCart } from '../../redux/actionCreators'
 import Gallery from '../molecules/Gallery';
 import { changueModel } from '../hook/usePageProduct';
-import Like from '../atoms/Like';
+import Like from '../../components/common/Like';
 import Share from '../molecules/Share';
 import Help from '../molecules/Help';
 import PaymentTypeImage from '../molecules/PaymentTypeImage';

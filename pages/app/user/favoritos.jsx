@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import Link from "next/link"
 import CardProductBoard from "../../../component/organisms/CardProductBoard"
-import Like from "../../../component/atoms/Like"
+import Like from "../../../components/common/Like"
 import Private from "component/atoms/Private"
 
 const Favorites = ({ like, isLogged }) => {
